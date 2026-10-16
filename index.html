@@ -393,7 +393,9 @@ $("#langBtn").addEventListener("click", () => {
 });
 
 function renderCount(){
-  const d = Math.ceil((new Date(CONFIG.date.iso) - new Date()) / 864e5);
+     // Nombre de jours calendaires restants (indépendant de l'heure de la journée)
+   const t = new Date(CONFIG.date.iso), n = new Date();
+   const d = Math.round((new Date(t.getFullYear(), t.getMonth(), t.getDate()) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5);
   $("#count").textContent = d > 1
     ? (lang === "fr" ? `Dans ${d} jours` : `In ${d} days`)
     : d === 1 ? (lang === "fr" ? "C'est demain" : "It's tomorrow")
