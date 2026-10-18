@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarah & Pierre — 25 septembre 2027</title>
+<meta name="description" content="Sarah et Pierre se marient le 25 septembre 2027 dans le Perche.">
+<script>document.documentElement.className+=" js"</script>
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --papier:#F6F1E6;      /* beige, fond principal */
+    --lin:#ECE5D3;         /* beige plus soutenu */
+    --sauge:#AEBBA3;
+    --sauge-clair:#E1E7D8;
+    --olive:#677A5E;
+    --foret:#2E3D31;       /* sections sombres */
+    --encre:#252D22;       /* texte */
+    --or:#B8995A;          /* filets, ornements */
+    --or-clair:#D9C28B;
+    --or-texte:#80632B;    /* doré lisible sur beige */
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost',system-ui,sans-serif;
+    /* léger grain de papier */
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.85;color:var(--encre);background:var(--papier) var(--grain);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--sauge-clair)}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration-color:var(--or);text-underline-offset:4px}
+  :focus-visible{outline:1px solid var(--or-texte);outline-offset:4px}
+  strong{font-weight:500}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+  .narrow{max-width:620px}
+  .center{text-align:center}
+  h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.08}
+  h2{font-size:clamp(2.5rem,6.2vw,4rem);margin-bottom:1.6rem;letter-spacing:-.005em}
+  .center h2::after{content:"";display:block;width:48px;height:1px;background:var(--or);margin:1.4rem auto 0}
+  h3{font-size:1.6rem;font-weight:400;margin-bottom:.3rem}
+  p+p{margin-top:1.1em}
+  section{padding:130px 0}
+  .lead{font-family:var(--serif);font-size:1.5rem;font-weight:300;line-height:1.65}
+  .lead+.lead{margin-top:1.2em}
+
+  /* Une langue visible à la fois */
+  [data-l]{display:none}
+  html[lang=fr] [data-l=fr],html[lang=en] [data-l=en]{display:revert}
+  html[lang=fr] span[data-l=fr],html[lang=en] span[data-l=en]{display:inline}
+
+  /* Ornement : filet doré avec petite branche */
+  .orn{display:flex;align-items:center;justify-content:center;gap:18px;color:var(--or);margin:2rem auto}
+  .orn::before,.orn::after{content:"";height:1px;width:min(110px,20vw);background:linear-gradient(90deg,transparent,currentColor)}
+  .orn::after{transform:scaleX(-1)}
+  .orn svg{width:34px;height:20px}
+
+  /* Navigation */
+  nav{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:20px 32px;box-shadow:0 1px 0 rgba(184,153,90,.4);transition:background .5s,box-shadow .5s,padding .5s}
+  nav.solid{background:rgba(246,241,230,.93);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(184,153,90,.4);padding-top:12px;padding-bottom:12px}
+  nav .logo{font-family:var(--serif);font-style:italic;font-size:1.6rem;text-decoration:none;font-weight:400;display:block;line-height:0}
+  nav .logo img{height:58px;width:58px;display:block;transition:height .5s,width .5s}
+  nav.solid .logo img{height:44px;width:44px}
+  nav ul{display:flex;gap:34px;list-style:none;align-items:center}
+  nav ul a{text-decoration:none;font-size:.74rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;transition:color .3s}
+  nav ul a:hover{color:var(--or-texte)}
+  .lang{background:none;border:1px solid var(--or);color:inherit;font:inherit;font-size:.72rem;letter-spacing:.14em;padding:4px 14px;border-radius:99px;cursor:pointer;transition:all .3s}
+  .lang:hover{background:var(--or);color:#fff}
+  @media(max-width:860px){nav ul li:not(:last-child){display:none}}
+
+  /* Accueil : noms sur papier, aquarelle qui s'y fond */
+  .hero{min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+  .intro{flex:1;display:grid;place-content:center;text-align:center;padding:130px 24px 24px}
+  .intro .small{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--or-texte)}
+  .intro h1{font-size:clamp(3.6rem,13.5vw,9.6rem);font-weight:300;line-height:.95;margin:.12em 0 0}
+  .intro h1 .amp{font-style:italic;color:var(--or);font-size:.62em;padding:0 .14em;font-weight:300}
+  .intro .when{font-size:.8rem;font-weight:400;letter-spacing:.32em;text-transform:uppercase}
+  .intro .count{margin-top:.9rem;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--olive)}
+  .paint{position:relative;width:100%}
+  .paint img{width:100%;height:auto;min-height:34vh;object-fit:cover;object-position:50% 60%;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 36%,#000 90%,transparent 100%);
+            mask-image:linear-gradient(to bottom,transparent 0,#000 36%,#000 90%,transparent 100%);
+    opacity:0;transition:opacity 2.4s ease .3s}
+  .paint img.on{opacity:1}
+  .intro>*{animation:rise 1.5s cubic-bezier(.2,.7,.2,1) both}
+  .intro h1{animation-delay:.15s}.intro .orn{animation-delay:.3s}.intro .when{animation-delay:.4s}.intro .count{animation-delay:.55s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  /* Apparition douce au défilement */
+  html.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  html.js .rv.in{opacity:1;transform:none}
+
+  /* Boutons */
+  .btn{display:inline-block;background:var(--foret);color:var(--papier);border:1px solid var(--foret);font:inherit;font-weight:400;font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;padding:18px 44px;text-decoration:none;cursor:pointer;transition:background .4s,color .4s}
+  .btn:hover{background:transparent;color:var(--foret)}
+  .btn[disabled]{opacity:.55;cursor:wait}
+
+  /* Le domaine : cadre en arche, écho de l'entrée */
+  .lieu{background:var(--lin) var(--grain)}
+  .lieu .grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+  .lieu h2{margin-bottom:1.4rem}
+  .lieu h2::after{content:"";display:block;width:48px;height:1px;background:var(--or);margin:1.4rem 0 0}
+  .frame{position:relative;aspect-ratio:3/4;background:var(--sauge-clair) center/cover no-repeat;border-radius:999px 999px 0 0;box-shadow:0 0 0 10px var(--lin),0 0 0 11px var(--or)}
+  .frame figcaption{position:absolute;left:0;right:0;bottom:-54px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--olive)}
+  @media(max-width:800px){.lieu .grid{grid-template-columns:1fr;gap:80px}.frame{max-width:380px;width:calc(100% - 22px);margin:0 auto}}
+
+  /* Programme */
+  .dark{background:var(--foret);color:var(--papier)}
+  .dark h2{color:var(--papier)}
+  .dark .sub{color:var(--sauge);font-family:var(--serif);font-style:italic;font-size:1.25rem}
+  .timeline{list-style:none;margin:3.6rem auto 0;max-width:520px;position:relative}
+  .timeline::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--or),rgba(184,153,90,.15))}
+  .timeline li{position:relative;text-align:center;padding:0 0 52px}
+  .timeline li:last-child{padding-bottom:0}
+  .timeline li::before{content:"";position:absolute;left:50%;top:0;width:9px;height:9px;background:var(--foret);border:1px solid var(--or);transform:translateX(-50%) rotate(45deg);z-index:2}
+  .timeline time{display:block;font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--or-clair);padding-top:28px;background:var(--foret);position:relative}
+  .timeline h3{margin:0;background:var(--foret);position:relative;font-size:1.5rem}
+  .timeline p{color:var(--sauge-clair);font-size:.98rem;background:var(--foret);position:relative;margin-top:.2rem}
+
+  /* Infos */
+  .infos{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 56px;margin-top:3.4rem;text-align:center;align-items:start}
+  @media(max-width:800px){.infos{grid-template-columns:1fr;gap:52px}}
+  .infos h3::after{content:"";display:block;width:32px;height:1px;background:var(--or);margin:.8rem auto 1rem}
+
+  /* RSVP : une carte façon papeterie */
+  .rsvp{background:var(--sauge-clair) var(--grain)}
+  .card{position:relative;background:var(--papier) var(--grain);padding:72px 56px;box-shadow:0 0 0 8px var(--sauge-clair),0 0 0 9px var(--or)}
+  .card::before{content:"";position:absolute;inset:12px;border:1px solid rgba(184,153,90,.45);pointer-events:none}
+  @media(max-width:560px){.card{padding:52px 26px}}
+  form{margin-top:2.6rem;display:grid;gap:32px;text-align:left;position:relative}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+  label,legend{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin-bottom:6px}
+  input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;font:inherit;font-size:1.08rem;padding:8px 0;border:0;border-bottom:1px solid var(--sauge);background:transparent;color:var(--encre);border-radius:0;transition:border-color .3s}
+  input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--or-texte);box-shadow:0 1px 0 var(--or-texte)}
+  textarea{min-height:100px;resize:vertical;border:1px solid var(--sauge);padding:12px 14px}
+  textarea:focus{box-shadow:none;border-color:var(--or-texte)}
+  fieldset{border:0}
+  .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .choice{margin:0;cursor:pointer;color:var(--encre);font-size:.98rem;letter-spacing:0;text-transform:none}
+  .choice input{position:absolute;opacity:0;pointer-events:none}
+  .choice>span{display:inline-block;padding:10px 24px;border:1px solid var(--sauge);border-radius:99px;transition:all .3s;font-weight:300}
+  .choice:hover>span{border-color:var(--olive)}
+  .choice input:checked+span{background:var(--foret);border-color:var(--foret);color:var(--papier)}
+  .choice input:focus-visible+span{outline:1px solid var(--or-texte);outline-offset:3px}
+  .declined .ast{display:none}
+  .hp{position:absolute;left:-9999px}
+  #details{display:grid;gap:32px}
+  #details.off{display:none}
+  .status{padding:14px 18px;border-left:2px solid var(--olive);background:var(--sauge-clair);display:none;font-size:.98rem}
+  .status.err{border-color:#8A2F3B;color:#7a2531;background:#f3e3e3}
+  .status.show{display:block}
+
+  footer{background:var(--foret);color:var(--sauge-clair);text-align:center;padding:90px 24px;border-top:1px solid var(--or)}
+  footer .names{font-family:var(--serif);font-style:italic;font-size:2.6rem;color:var(--papier);font-weight:300}
+  footer .orn{margin:1.2rem auto}
+
+  /* Programme : la suite est une surprise */
+  .teaser{display:flex;flex-direction:column;align-items:center;margin-top:14px}
+  .teaser .trail{width:1px;height:64px;background:repeating-linear-gradient(to bottom,var(--or) 0 3px,transparent 3px 9px);-webkit-mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.2));mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.2))}
+  .teaser .env{width:150px;margin-top:12px;color:var(--or);overflow:visible;position:relative;z-index:1}
+  .teaser p{font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.5;color:var(--sauge-clair);max-width:400px;margin-top:1.6rem}
+
+  /* Hébergement : cartes façon papeterie */
+  .lodging{background:var(--lin) var(--grain)}
+  .lodging .lead{margin-top:0}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:3.4rem}
+  @media(max-width:700px){.cards{grid-template-columns:1fr}}
+  .stay{position:relative;background:var(--papier);padding:38px 34px 32px;box-shadow:0 0 0 1px rgba(184,153,90,.55);display:flex;flex-direction:column;text-align:center;transition:box-shadow .4s}
+  .stay::before{content:"";position:absolute;inset:6px;border:1px solid rgba(184,153,90,.28);pointer-events:none}
+  .stay:hover{box-shadow:0 0 0 1px var(--or),0 16px 32px -20px rgba(46,61,49,.4)}
+  .stay p{margin:0}
+  .stay h3{font-size:1.8rem;margin-bottom:.15rem}
+  .stay .kind{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--or-texte)}
+  .stay .place{font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin:.7rem 0 1.1rem}
+  .stay .desc{font-size:.98rem;line-height:1.7;flex:1}
+  .stay .go{align-self:center;margin-top:1.5rem;font-size:.72rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--foret);border-bottom:1px solid var(--or);padding-bottom:3px;transition:color .3s}
+  .stay .go:hover{color:var(--or-texte)}
+  @media(max-width:1020px){nav ul{gap:22px}}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}html.js .rv{opacity:1;transform:none}}
+</style>
+
+</head>
+
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sprig" viewBox="0 0 34 20">
+    <path d="M2 10 C12 10 22 10 32 10" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <path d="M10 10 C8 6 9 3 12 2 C14 5 13 8 10 10Z M17 10 C15 14 16 17 19 18 C21 15 20 12 17 10Z M24 10 C22 6 23 3 26 2 C28 5 27 8 24 10Z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<nav id="nav">
+  <a class="logo" href="#top" aria-label="Sarah &amp; Pierre : retour en haut"><img src="images/logo.png" alt="Logo Sarah &amp; Pierre" onerror="this.replaceWith(document.createTextNode('S &amp; P'))"></a>
+  <ul>
+    <li><a href="#invitation"><span data-l="fr">Le Grand Jour</span><span data-l="en">The Big Day</span></a></li>
+    <li><a href="#domaine"><span data-l="fr">Le Perche</span><span data-l="en">Le Perche</span></a></li>
+    <li><a href="#programme"><span data-l="fr">Programme</span><span data-l="en">Schedule</span></a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#hebergement"><span data-l="fr">Hébergement</span><span data-l="en">Accommodation</span></a></li>
+    <li><button class="lang" id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button></li>
+  </ul>
+</nav>
+
+<!-- ============ ACCUEIL ============ -->
+<header class="hero" id="top">
+  <div class="intro">
+    <p class="small"><span data-l="fr">Nous nous marions</span><span data-l="en">We are getting married</span></p>
+    <h1>Sarah <span class="amp">&amp;</span> Pierre</h1>
+    <div class="orn"><svg><use href="#sprig"/></svg></div>
+    <p class="when"><span id="c-date"></span> — <span id="c-place"></span></p>
+    <p class="count" id="count"></p>
+  </div>
+  <div class="paint"><img id="heroImg" alt="Aquarelle de l'entrée du domaine, dans le Perche"></div>
+</header>
+
+<main>
+
+<!-- ============ INVITATION ============ -->
+<section id="invitation" class="invite">
+  <div class="wrap narrow center">
+    <h2><span data-l="fr">Le grand jour</span><span data-l="en">The big day</span></h2>
+    <div data-l="fr">
+      <p class="lead">Après toutes ces belles années ensemble, nous avons décidé de nous dire Oui !</p>
+      <p class="lead">Parce que nous n'imaginons pas célébrer cette journée sans les personnes qui comptent pour nous, réservez dès maintenant votre samedi 25 septembre 2027. Nous avons hâte de vous retrouver pour rire, trinquer et faire la fête avec vous.</p>
+      <p class="lead">Pour profiter pleinement de cette journée et de la soirée, nous avons fait le choix d'un mariage réservé aux adultes. Nous espérons que vous comprendrez ce souhait et que vous pourrez profiter de cette belle occasion avec nous.</p>
+
+    </div>
+    <div data-l="en">
+      <p class="lead">After several wonderful years together, we have decided to take the next big step in our lives.</p>
+      <p class="lead">Because we can't imagine celebrating this day without the people who matter to us, please save Saturday 25 September 2027. We can't wait to laugh, toast and celebrate with you.</p>
+      <p class="lead">To make the most of this special day and evening, we have chosen to have an adults-only wedding. We hope you will understand our wish and that you will be able to enjoy this wonderful occasion with us.</p>
+    </div>
+    <div class="orn"><svg><use href="#sprig"/></svg></div>
+    <a class="btn" href="#rsvp"><span data-l="fr">Confirmer ma présence</span><span data-l="en">Confirm attendance</span></a>
+  </div>
+</section>
+
+<!-- ============ LE DOMAINE ============ -->
+<section id="domaine" class="lieu">
+  <div class="wrap grid">
+    <figure class="frame" id="frameLieu">
+      <figcaption><span data-l="fr">Notre Perche, notre histoire</span><span data-l="en">Our Perche, our story</span></figcaption>
+    </figure>
+    <div>
+      <h2><span data-l="fr">Le Perche</span><span data-l="en">Le Perche</span></h2>
+      <div data-l="fr">
+        <p class="lead">Le Perche occupe une place particulière dans notre histoire. C’est donc tout naturellement ici que nous avons choisi de nous retrouver pour célébrer notre mariage. Ici - entre collines douces, prairies verdoyantes et forêts enchanteresses - chaque chemin semble écrit pour une belle histoire. La notre s'inscrira désormais ici, avec vous tous.</p>
+        <p>Nous vous donnons rendez-vous à la fin de l’été, lorsque les beaux jours se prolongent et que la lumière dorée se s'entremêle aux premières couleurs de l’automne. L'adresse exacte vous sera communiquée avec votre faire-part.</p>
+      </div>
+      <div data-l="en">
+        <p class="lead">The Perche holds a special place in our story, so it felt only natural to choose this beautiful region as the place where we will celebrate our wedding. Here, among gentle hills, green meadows and enchanting woods, every path seems written for a beautiful story. Ours will now begin a new chapter here, with all of you.</p>
+        <p>We look forward to welcoming you at the end of summer, when the long, warm days give way to golden light and the first colours of autumn. The exact venue location will be revealed with your invitation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMME ============ -->
+<section id="programme" class="dark">
+  <div class="wrap narrow center">
+    <h2><span data-l="fr">Le programme</span><span data-l="en">The schedule</span></h2>
+    <p class="sub" data-l="fr">Samedi 25 septembre 2027 · horaires indicatifs</p>
+    <p class="sub" data-l="en">Saturday 25 September 2027 · approximate times</p>
+    <ol class="timeline" id="timeline"></ol>
+    <div class="teaser">
+      <span class="trail" aria-hidden="true"></span>
+<svg class="env" viewBox="0 0 150 106" aria-hidden="true">
+        <!-- fond de l'enveloppe -->
+        <rect x="3" y="14" width="144" height="89" rx="4" fill="#27352B" stroke="currentColor" stroke-width="1"/>
+        <!-- rabat ouvert (derrière la lettre) -->
+        <path id="flapBack" d="M3 14 L75 66 L147 14 Z" fill="#33443A" stroke="currentColor" stroke-width="1" stroke-linejoin="round" style="display:none"/>
+        <!-- la lettre, qui sort de l'enveloppe -->
+        <g id="letter">
+          <rect x="20" y="26" width="110" height="72" rx="2" fill="#F6F1E6" stroke="#B8995A" stroke-width=".8"/>
+          <text x="75" y="49" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-style="italic" font-size="18" fill="#80632B">S &amp; P</text>
+          <use href="#sprig" x="64" y="55" width="22" height="13" color="#B8995A"/>
+          <line x1="38" y1="78" x2="112" y2="78" stroke="#B8995A" stroke-opacity=".55" stroke-width=".6"/>
+          <line x1="46" y1="86" x2="104" y2="86" stroke="#B8995A" stroke-opacity=".4" stroke-width=".6"/>
+        </g>
+        <!-- poche avant -->
+        <path d="M3 14 L75 58 L147 14 L147 99 Q147 103 143 103 L7 103 Q3 103 3 99 Z" fill="#33443A" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <path d="M3 101 L58 58 M147 101 L92 58" fill="none" stroke="currentColor" stroke-width=".6" opacity=".5"/>
+        <!-- rabat fermé + sceau -->
+        <path id="flapFront" d="M3 14 L75 66 L147 14 Z" fill="#3C4E42" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <g id="seal">
+          <circle cx="75" cy="66" r="17" fill="currentColor"/>
+          <circle cx="75" cy="66" r="13.6" fill="none" stroke="#2E3D31" stroke-width=".8"/>
+          <use href="#sprig" x="62" y="58.7" width="26" height="15.3" color="#2E3D31"/>
+        </g>
+      </svg>
+      <p data-l="fr">La suite du programme vous sera dévoilée dans votre faire-part.</p>
+      <p data-l="en">The rest of the day will be revealed in your invitation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFOS ============ -->
+<section id="infos">
+  <div class="wrap">
+    <h2 class="center"><span data-l="fr">Bon à savoir</span><span data-l="en">Good to know</span></h2>
+    <div class="infos">
+      <div>
+        <h3><span data-l="fr">Hébergement</span><span data-l="en">Accommodation</span></h3>
+        <p data-l="fr">De nombreux hébergements vous attendent dans les environs de La Chapelle-Fortin et La Ferté-Vidame. Nous vous suggérons <a href="#hebergement">une liste d’hébergements</a>, n’hésitez pas à la consulter ! Septembre est une période prisée : réservez tôt.</p>
+        <p data-l="en">Many accomodations await you around La Chapelle-Fortin and La Ferté-Vidame. We’ve put together <a href="#hebergement">a list of places to stay</a>, do take a look! September is a popular time, so book early.</p>
+      </div>
+      <div>
+        <h3>Dress code</h3>
+        <p data-l="fr">Soyez beaux & élégants !</p>
+        <p data-l="en">Look your best, beautiful & elegant!</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p data-l="fr">Une question ? Écrivez-nous :<br><a id="mailLink" href="#"></a></p>
+        <p data-l="en">Any question? Write to us:<br><a id="mailLink2" href="#"></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section id="rsvp" class="rsvp">
+  <div class="wrap narrow">
+    <div class="card">
+      <div class="center">
+        <h2>RSVP</h2>
+        <p data-l="fr">Merci de répondre avant le <strong id="deadFr"></strong>.</p>
+        <p data-l="en">Please reply before <strong id="deadEn"></strong>.</p>
+      </div>
+
+      <form id="rsvpForm" novalidate>
+        <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div><label for="nom"><span data-l="fr">Nom et prénom *</span><span data-l="en">Full name *</span></label>
+          <input type="text" id="nom" name="nom" required autocomplete="name"></div>
+
+        <div><label for="adresse"><span data-l="fr">Adresse postale<span class="ast"> *</span></span><span data-l="en">Postal address<span class="ast"> *</span></span></label>
+          <input type="text" id="adresse" name="adresse" required autocomplete="street-address"></div>
+
+        <div><label for="tel"><span data-l="fr">Téléphone<span class="ast"> *</span></span><span data-l="en">Phone number<span class="ast"> *</span></span></label>
+          <input type="tel" id="tel" name="telephone" required autocomplete="tel"></div>
+
+        <fieldset>
+          <legend><span data-l="fr">Serez-vous présent ? *</span><span data-l="en">Will you be attending? *</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="presence" value="Oui"><span><span data-l="fr">Oui</span><span data-l="en">Yes</span></span></label>
+            <label class="choice"><input type="radio" name="presence" value="Non"><span><span data-l="fr">Non</span><span data-l="en">No</span></span></label>
+          </div>
+        </fieldset>
+
+        <div id="details" class="off">
+          <div><label for="nb"><span data-l="fr">Nombre de personnes, vous inclus</span><span data-l="en">Number of guests, including you</span></label>
+            <select id="nb" name="nombre_personnes">
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            </select></div>
+          <div><label for="noms"><span data-l="fr">Prénoms de vos accompagnants et enfants</span><span data-l="en">Names of your guests and children</span></label>
+            <input type="text" id="noms" name="accompagnants"></div>
+        </div>
+
+        <div><label for="allergies"><span data-l="fr">Allergie ou régime particulier<span class="ast"> *</span></span><span data-l="en">Allergy or special diet<span class="ast"> *</span></span></label>
+          <input type="text" id="allergies" name="allergies" required></div>
+
+        <div><label for="msg"><span data-l="fr">Un message pour Sarah et Pierre ?</span><span data-l="en">A message for Sarah and Pierre?</span></label>
+          <textarea id="msg" name="message"></textarea></div>
+
+        <p style="font-size:.85rem;color:var(--olive)"><span data-l="fr">* Champs obligatoires</span><span data-l="en">* Required fields</span></p>
+
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+        <div class="center"><button class="btn" id="submitBtn" type="submit"><span data-l="fr">Envoyer ma réponse</span><span data-l="en">Send my reply</span></button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HÉBERGEMENT ============ -->
+<section id="hebergement" class="lodging">
+  <div class="wrap narrow center">
+    <h2><span data-l="fr">Hébergement</span><span data-l="en">Accommodation</span></h2>
+    <p class="lead" data-l="fr">Quelques adresses pour dormir près de La Ferté-Vidame et de La Chapelle-Fortin. Pensez à réserver tôt : septembre est une période prisée.</p>
+    <p class="lead" data-l="en">A few places to stay near La Ferté-Vidame and La Chapelle-Fortin. Do book early: September is a popular time.</p>
+  </div>
+  <div class="wrap"><div class="cards" id="lodgingGrid"></div></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="names">Sarah &amp; Pierre</div>
+  <div class="orn"><svg><use href="#sprig"/></svg></div>
+  <p id="footDate"></p>
+  <p data-l="fr">Avec toute notre affection</p>
+  <p data-l="en">With all our love</p>
+</footer>
+
+<script>
+/* =====================================================================
+   PERSONNALISATION : tout se règle ici, sans toucher au reste du code
+   ===================================================================== */
+const CONFIG = {
+  // Photos : fichiers à placer dans le dossier "images" à côté de index.html
+  images: {
+    hero:  "images/hero.jpg",        // l'aquarelle du domaine (déjà fournie)
+    lieu:  "images/perche.jpg",        // cadre de la section Le Perche. Remplacez par une photo (portrait) quand vous voulez
+    lieuFocus: "50% 50%"             // zone de l'image affichée dans le cadre (utile tant que c'est l'aquarelle)
+  },
+
+  date:  { iso:"2027-09-25T16:00:00", fr:"Samedi 25 septembre 2027", en:"Saturday 25 September 2027" },
+  place: { fr:"Le Perche", en:"Le Perche, France" },
+  rsvpDeadline: { fr:"1er décembre 2026", en:"1 December 2026" },
+  contactEmail: "contact@sarah-et-pierre.com",   // à remplacer par votre vraie adresse
+
+  // Programme (modifiez, ajoutez ou supprimez des lignes librement)
+  schedule: [
+    { time:"15h30", fr:["Accueil des invités","Rafraîchissements dans la cour et les jardins."],
+                    en:["Welcome","Refreshments in the courtyard and gardens."] }
+  ],
+
+
+  // Hébergements proposés (section en bas de page). Modifiez, ajoutez ou supprimez des blocs librement.
+  lodging: [
+    { name:"Verneuil la Douce",
+      kind:{ fr:"Hôtel, restaurant &amp; spa", en:"Hotel, restaurant &amp; spa" },
+      place:{ fr:"Verneuil d’Avre-et-d’Iton", en:"Verneuil d’Avre-et-d’Iton" },
+      desc:{ fr:"Une demeure d’art 4 étoiles, avec restaurant gastronomique et spa, à l’orée du Perche.",
+             en:"A four-star art hotel with a gourmet restaurant and spa, on the edge of the Perche." },
+      url:"https://verneuilladoucehotel.com" },
+    { name:"Grand Jardin",
+      kind:{ fr:"Ferme hôtelière", en:"Farm hotel" },
+      place:{ fr:"À quelques pas de La Ferté-Vidame", en:"Steps from La Ferté-Vidame" },
+      desc:{ fr:"Suites, tentes glamping et table d’hôte, au cœur d’une ferme biologique de 38 hectares.",
+             en:"Suites, glamping tents and a farm table, set in a 38-hectare organic farm." },
+      url:"https://www.grandjardin.fr" },
+    { name:"Aux Lapins Bleus",
+      kind:{ fr:"Chambres, restaurant &amp; bar à vin", en:"Rooms, restaurant &amp; wine bar" },
+      place:{ fr:"La Ferté-Vidame", en:"La Ferté-Vidame" },
+      desc:{ fr:"Quatre chambres chaleureuses au cœur du village, avec cuisine de saison et soirées musicales.",
+             en:"Four cosy rooms in the heart of the village, with seasonal cooking and live music evenings." },
+      url:"https://www.auxlapinsbleus.fr" },
+    { name:"Le Clos du Perche",
+      kind:{ fr:"Chambres d’hôtes", en:"Bed &amp; breakfast" },
+      place:{ fr:"Boissy-lès-Perche", en:"Boissy-lès-Perche" },
+      desc:{ fr:"Trois chambres de plain-pied avec jardin privatif, à environ 8 km de La Ferté-Vidame.",
+             en:"Three ground-floor rooms with private gardens, about 8 km from La Ferté-Vidame." },
+      url:"https://www.booking.com/hotel/fr/le-clos-du-perche-boissy-les-perche.fr.html" },
+    { name:"Autres logements",
+      kind:{ fr:"Sur Airbnb", en:"On Airbnb" },
+      place:{ fr:"Autour de La Chapelle-Fortin", en:"Around La Chapelle-Fortin" },
+      desc:{ fr:"Un large choix de maisons et d’appartements dans les environs.",
+             en:"A wide choice of houses and apartments nearby." },
+      url:"https://www.airbnb.fr/s/La-Chapelle-Fortin--France/homes" },   // à remplacer par votre propre lien de recherche si vous le souhaitez
+    { name:"Destination Perche",
+      kind:{ fr:"Gîtes, chambres d’hôtes &amp; logements insolites", en:"Cottages, B&amp;Bs &amp; unusual stays" },
+      place:{ fr:"Dans tout le Perche", en:"All across the Perche" },
+      desc:{ fr:"Une association d’hébergeurs qui propose une sélection de lieux de charme, certains réservables en ligne.",
+             en:"An association of local hosts with a hand-picked selection of charming places, some bookable online." },
+      url:"https://www.destinationperche.fr" }
+  ],
+
+
+
+  /* ---- Réception des réponses ----
+     1. Sur web3forms.com, saisissez votre email : vous recevez une clé gratuite.
+     2. Collez-la ci-dessous. Chaque réponse arrive par email.
+     Sans clé, le bouton ouvre un email pré-rempli de l'invité vers votre adresse. */
+  web3formsKey: "bc2b86ff-13af-4e67-9d28-e7feb09a1ff8"
+};
+
+/* =====================  CODE (rien à modifier)  ===================== */
+const $ = s => document.querySelector(s);
+let lang = ((()=>{try{return localStorage.getItem("lang")}catch(e){return null}})() || navigator.language || "fr").slice(0,2) === "en" ? "en" : "fr";
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  try{localStorage.setItem("lang", l)}catch(e){}
+  $("#langBtn").textContent = l === "fr" ? "EN" : "FR";
+  $("#c-date").textContent = CONFIG.date[l];
+  $("#c-place").textContent = CONFIG.place[l];
+  $("#footDate").textContent = CONFIG.date[l] + " · " + CONFIG.place[l];
+  document.title = l === "fr" ? "Sarah & Pierre — 25 septembre 2027" : "Sarah & Pierre — 25 September 2027";
+  renderCount();
+}
+$("#langBtn").addEventListener("click", () => {
+  setLang(lang === "fr" ? "en" : "fr");
+  // les blocs de l'autre langue étaient masqués : on les rend visibles
+  document.querySelectorAll(".rv").forEach(el => el.classList.add("in"));
+});
+
+function renderCount(){
+     // Nombre de jours calendaires restants (indépendant de l'heure de la journée)
+   const t = new Date(CONFIG.date.iso), n = new Date();
+   const d = Math.round((new Date(t.getFullYear(), t.getMonth(), t.getDate()) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5);
+  $("#count").textContent = d > 1
+    ? (lang === "fr" ? `Dans ${d} jours` : `In ${d} days`)
+    : d === 1 ? (lang === "fr" ? "C'est demain" : "It's tomorrow")
+    : d === 0 ? (lang === "fr" ? "C'est aujourd'hui" : "It's today") : "";
+}
+
+function renderStatic(){
+  $("#timeline").innerHTML = CONFIG.schedule.map(s =>
+    `<li><time>${s.time}</time>
+       <h3><span data-l="fr">${s.fr[0]}</span><span data-l="en">${s.en[0]}</span></h3>
+       <p><span data-l="fr">${s.fr[1]}</span><span data-l="en">${s.en[1]}</span></p></li>`).join("");
+  $("#lodgingGrid").innerHTML = CONFIG.lodging.map(l =>
+    `<article class="stay">
+       <h3>${l.name}</h3>
+       <p class="kind"><span data-l="fr">${l.kind.fr}</span><span data-l="en">${l.kind.en}</span></p>
+       <p class="place"><span data-l="fr">${l.place.fr}</span><span data-l="en">${l.place.en}</span></p>
+       <p class="desc"><span data-l="fr">${l.desc.fr}</span><span data-l="en">${l.desc.en}</span></p>
+       <a class="go" href="${l.url}" target="_blank" rel="noopener noreferrer"><span data-l="fr">Découvrir</span><span data-l="en">Discover</span></a>
+     </article>`).join("");
+  $("#deadFr").textContent = CONFIG.rsvpDeadline.fr;
+  $("#deadEn").textContent = CONFIG.rsvpDeadline.en;
+  $("#mailLink").href = $("#mailLink2").href = "mailto:" + CONFIG.contactEmail;
+  $("#mailLink").textContent = $("#mailLink2").textContent = CONFIG.contactEmail;
+}
+
+// Images (avec repli : si un fichier manque, rien de cassé n'est affiché)
+const heroImg = $("#heroImg");
+heroImg.onload = () => heroImg.classList.add("on");
+heroImg.onerror = () => { heroImg.parentElement.style.display = "none"; };
+heroImg.src = CONFIG.images.hero;
+
+const lieuImg = new Image();
+lieuImg.onload = () => {
+  const f = $("#frameLieu");
+  f.style.backgroundImage = `url("${CONFIG.images.lieu}")`;
+  f.style.backgroundPosition = CONFIG.images.lieuFocus || "center";
+  if (CONFIG.images.lieu === CONFIG.images.hero) f.style.backgroundSize = "auto 190%";
+};
+lieuImg.onerror = () => { $("#frameLieu").style.display = "none"; };
+lieuImg.src = CONFIG.images.lieu;
+
+// Barre de navigation
+const nav = $("#nav");
+const onScroll = () => nav.classList.toggle("solid", scrollY > 60);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+// RSVP
+const form = $("#rsvpForm"), details = $("#details");
+const presence = () => (form.querySelector('input[name=presence]:checked') || {}).value || "";
+// Nombre de personnes et accompagnants : seulement si « Oui »
+const reqUnlessNo = [form.adresse, form.telephone, form.allergies];
+function syncForm(){
+  const no = presence() === "Non";
+  details.classList.toggle("off", presence() !== "Oui");
+  form.classList.toggle("declined", no);      // masque les astérisques
+  reqUnlessNo.forEach(f => f.required = !no);
+}
+form.addEventListener("change", syncForm);
+
+const T = {
+  fr:{ missing:"Merci de remplir tous les champs obligatoires (*).",
+       ok:"Merci, votre réponse est bien enregistrée. À très vite !",
+       sending:"Envoi en cours…",
+       fail:"L'envoi a échoué. Vérifiez votre connexion et réessayez, ou écrivez-nous directement." },
+  en:{ missing:"Please fill in all required fields (*).",
+       ok:"Thank you, your reply has been recorded. See you soon!",
+       sending:"Sending…",
+       fail:"Sending failed. Check your connection and try again, or write to us directly." }
+};
+function say(msg, err){ const s=$("#status"); s.textContent=msg; s.className="status show"+(err?" err":""); }
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (form.botcheck.value) return;
+  // Le nom reste obligatoire ; les autres champs ne le sont que si la personne vient
+  const req = presence() === "Non" ? [form.nom] : [form.nom, ...reqUnlessNo];
+  if (req.some(f => !f.value.trim()) || !presence()){ say(T[lang].missing, true); return; }
+
+  const data = {
+    "Nom et prénom": form.nom.value.trim(),
+    "Adresse postale": form.adresse.value.trim(),
+    "Téléphone": form.telephone.value.trim(),
+    "Présent": presence(),
+    "Nombre de personnes": presence() === "Oui" ? form.nombre_personnes.value : "0",
+    "Accompagnants": presence() === "Oui" ? form.accompagnants.value.trim() : "",
+    "Allergie ou régime particulier": form.allergies.value.trim(),
+    "Message": form.message.value.trim()
+  };
+
+  // Sans clé Web3Forms : email pré-rempli à votre adresse
+  if (!CONFIG.web3formsKey){
+    const body = Object.entries(data).map(([k,v]) => `${k} : ${v}`).join("\n");
+    location.href = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent("RSVP "+data["Nom et prénom"])}&body=${encodeURIComponent(body)}`;
+    say(T[lang].ok); return;
+  }
+
+  const btn = $("#submitBtn"); btn.disabled = true; say(T[lang].sending);
+  try{
+    const r = await fetch("https://api.web3forms.com/submit", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify({
+        access_key: CONFIG.web3formsKey,
+        subject: `RSVP — ${data["Nom et prénom"]} (${data["Présent"]})`,
+        from_name: "Site mariage Sarah & Pierre",
+        ...data
+      })
+    });
+    const j = await r.json();
+    if (!j.success) throw new Error(j.message);
+    say(T[lang].ok); form.reset(); syncForm();
+  }catch(err){
+    say(T[lang].fail, true);
+  }
+  btn.disabled = false;
+});
+
+renderStatic();
+
+// Apparition douce au défilement
+const rv = document.querySelectorAll(".invite .wrap > *, .lieu .frame, .lieu .grid > div, .timeline li, .dark .wrap > *:not(.timeline), .infos > div, #infos h2, .card, .lodging .narrow > *, .stay");
+rv.forEach(el => el.classList.add("rv"));
+if ("IntersectionObserver" in window){
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+  rv.forEach(el => io.observe(el));
+} else { rv.forEach(el => el.classList.add("in")); }
+
+setLang(lang);
+
+// Enveloppe du programme : elle s'ouvre au fil du défilement
+(function(){
+  const svg = document.querySelector(".teaser .env"); if (!svg) return;
+  const flapF = svg.querySelector("#flapFront"), flapB = svg.querySelector("#flapBack"),
+        letter = svg.querySelector("#letter"), seal = svg.querySelector("#seal"),
+        caps = document.querySelectorAll(".teaser p");
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+  const outCubic = t => 1 - Math.pow(1 - t, 3);
+
+  function draw(p){
+    const c = Math.cos(ease(clamp(p / .5)) * Math.PI);      // 1 = rabat fermé, -1 = rabat grand ouvert
+    if (c >= 0){
+      flapF.style.display = ""; flapB.style.display = "none";
+      flapF.setAttribute("transform", `translate(0 14) scale(1 ${c}) translate(0 -14)`);
+    } else {
+      flapF.style.display = "none"; flapB.style.display = "";
+      flapB.setAttribute("transform", `translate(0 14) scale(1 ${c * .9}) translate(0 -14)`);
+    }
+    seal.setAttribute("transform", `translate(0 ${52 * (Math.max(c, 0) - 1)})`);
+    seal.style.opacity = 1 - clamp(p / .2);                 // le sceau se rompt dès le début
+    letter.setAttribute("transform", `translate(0 ${-66 * outCubic(clamp((p - .4) / .6))})`);
+    const o = .3 + .7 * clamp((p - .5) / .5);
+    caps.forEach(el => el.style.opacity = o);
+  }
+  // 0 quand l'enveloppe entre dans l'écran, 1 quand elle atteint le milieu
+  const progress = () => {
+    const r = svg.getBoundingClientRect(), c = r.top + r.height / 2;
+    return clamp((innerHeight * .92 - c) / (innerHeight * .5));
+  };
+
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches){ draw(1); return; }  // pas d'animation : enveloppe ouverte
+
+  let cur = progress(), target = cur, raf = null;
+  draw(cur);
+  function tick(){
+    cur += (target - cur) * .14;
+    if (Math.abs(target - cur) < .002) cur = target;
+    draw(cur);
+    raf = cur !== target ? requestAnimationFrame(tick) : null;
+  }
+  function onMove(){ target = progress(); if (!raf) raf = requestAnimationFrame(tick); }
+  addEventListener("scroll", onMove, {passive:true});
+  addEventListener("resize", onMove);
+})();
+</script>
+</body>
+</html>
